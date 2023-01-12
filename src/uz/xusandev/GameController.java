@@ -7,17 +7,37 @@ import java.util.Date;
 public class GameController {
 
     private ArrayList<QuestionData> questionData;
+    private Date startDate;
     private int position = 0;
     private int totalCorrects = 0;
     private int totalMistakes = 0;
-
-    private Date startDate;
     private Date endDate;
 
     public GameController(ArrayList<QuestionData> questionData) {
         this.questionData = questionData;
         startDate = new Date();
     }
+
+    public void startGame() {
+        startDate = new Date();
+    }
+
+    public void endGame() {
+        endDate = new Date();
+    }
+
+    public String getTotalSpentTime() {
+        long deltaTime = Math.abs(startDate.getTime() - endDate.getTime());
+
+        long second = deltaTime / 1000 % 60;
+        long minute = deltaTime / 1000 / 60 % 60;
+        long hour = deltaTime / 1000 / 60 / 60 % 24;
+
+        String result = String.format("%02d:%02d:%02d", hour, minute, second);
+
+        return result;
+    }
+
 
     private QuestionData getCurrentQuestion() {
         return questionData.get(position);

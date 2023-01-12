@@ -15,6 +15,8 @@ public class Main {
 
         gameController = new GameController(data);
 
+        gameController.startGame();
+
         while (!gameController.isFinished()) {
             System.out.println(gameController.getPosition() + " - Question: " + gameController.getQuestion());
 
@@ -35,6 +37,10 @@ public class Main {
         }
 
         System.out.println("You found " + gameController.getTotalCorrects() + " out of " + gameController.getTotalQuestions() + " questions right");
+
+        gameController.endGame();
+
+        System.out.println("You have spent " + gameController.getTotalSpentTime());
 
     }
 

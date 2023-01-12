@@ -1,2 +1,2 @@
 # Quiz
-I made quizzes in Java
+made quizzes by Java

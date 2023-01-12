@@ -1,2 +1,2 @@
 # Quiz
-made quizzes by Java
+Quiz app is made by Java
